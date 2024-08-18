@@ -17,6 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Bot {
+    public static EventWaiter eventWaiter;
     private static final Logger LOGGER = LoggerFactory.getLogger(Bot.class);
 
     public Bot() throws InterruptedException {
@@ -25,9 +26,8 @@ public class Bot {
         // Set the client settings
         client.setOwnerId(Config.get("owner_id"));
         client.setStatus(OnlineStatus.ONLINE);
-        client.setActivity(Activity.listening("for loopholes"));
         addCommands(client);
-        EventWaiter eventWaiter = new EventWaiter();
+        eventWaiter = new EventWaiter();
         // Finalize the command client
         CommandClient commandClient = client.build();
 
