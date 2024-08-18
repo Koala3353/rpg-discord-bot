@@ -5,8 +5,7 @@ import com.jagrosh.jdautilities.command.CommandClientBuilder;
 import com.jagrosh.jdautilities.command.SlashCommand;
 import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
 import github.io.koala3353.Config;
-import github.io.koala3353.bot.commands.AboutCommand;
-import github.io.koala3353.bot.commands.TradeCommand;
+import github.io.koala3353.bot.commands.*;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -49,7 +48,8 @@ public class Bot {
     }
     private static void addCommands(CommandClientBuilder clientBuilder) {
         // Initialize the commands of the bot
-        clientBuilder.addSlashCommands(new TradeCommand(), new AboutCommand());
+        clientBuilder.addSlashCommands(new TradeCommand(), new AboutCommand(), new HelpCommand(), new StartAdventureCommand(),
+                new ProfileCommand(), new ShopCommand(), new ViewInventoryCommand(), new BalanceCommand(), new EquipCommand());
         LOGGER.info("Added the slash commands");
         clientBuilder.addContextMenus();
         LOGGER.info("Added the context menus");
